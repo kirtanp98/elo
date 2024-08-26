@@ -1,15 +1,22 @@
 {
   "name": "elo",
+  "license": "ISC",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev-run": "tsx index.ts",
+    "build": "tsup index.ts --format cjs,esm --dts",
+    "release": "pnpm run build && changeset publish",
+    "lint": "tsc"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
   "devDependencies": {
+    "tsup": "^8.2.4",
+    "tsx": "^4.18.0",
     "typescript": "^5.5.4"
   }
 }
